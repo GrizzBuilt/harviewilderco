@@ -487,7 +487,8 @@ input {
   padding: 1rem;
 }
 
-.error-card {
+.error-card,
+.thanks-card {
   width: min(100%, 42rem);
   padding: clamp(2.5rem, 9vw, 6rem) 1.5rem;
   border: 1px solid var(--line);
@@ -495,6 +496,24 @@ input {
   background: var(--panel);
   box-shadow: var(--shadow);
   text-align: center;
+}
+
+.thanks-page {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  padding: 1rem;
+}
+
+.thanks-card h1 {
+  max-width: 12ch;
+  margin-inline: auto;
+  font-size: clamp(2.5rem, 10vw, 5rem);
+}
+
+.thanks-card > p:not(.eyebrow) {
+  margin-bottom: 2rem;
+  color: var(--taupe);
 }
 
 .error-card h1 {
