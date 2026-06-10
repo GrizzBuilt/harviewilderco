@@ -1,11 +1,15 @@
 # Harvie Wilder Co.
 
-This repository contains the temporary static placeholder site for
-**Harvie Wilder Co.**, a GrizzBuilt family brand.
+This repository contains the temporary pre-launch landing page for
+**Harvie Wilder Co.**, a small-batch kidswear brand from the GrizzBuilt family.
 
-The site uses plain HTML and CSS with no external dependencies. It is designed
-to deploy directly from the repository root while the full shop and DNS setup
-for [harviewilderco.com](https://harviewilderco.com) are in progress.
+The site uses plain HTML and CSS with no external dependencies, build step, or
+external assets. It is designed to deploy directly from the repository root
+while the full shop and product catalog for
+[harviewilderco.com](https://harviewilderco.com) are in progress.
+
+The first-dibs signup uses Netlify Forms and is detected automatically when the
+site is deployed.
 
 ## Deployment
 
