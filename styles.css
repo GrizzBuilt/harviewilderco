@@ -234,84 +234,13 @@ h3 {
   filter: brightness(1.12);
 }
 
-.hero-mark {
-  position: relative;
-  width: min(100%, 22rem);
-  aspect-ratio: 1;
+.hero-logo {
+  display: block;
+  width: min(88vw, 520px);
+  max-width: 100%;
+  height: auto;
   margin-inline: auto;
-  transform: rotate(3deg);
-  border: 2px solid var(--gold);
-  border-radius: 44% 56% 47% 53% / 55% 43% 57% 45%;
-  box-shadow:
-    0 0 0 0.75rem rgb(255 143 199 / 6%),
-    var(--shadow);
-}
-
-.hero-mark::before,
-.hero-mark::after {
-  position: absolute;
-  border-radius: inherit;
-  content: "";
-}
-
-.hero-mark::before {
-  inset: 0.75rem;
-  border: 1px dashed var(--pink);
-}
-
-.hero-mark::after {
-  inset: 2rem;
-  border: 1px solid rgb(101 214 255 / 45%);
-}
-
-.mark-copy {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  z-index: 1;
-  place-content: center;
-  color: var(--cream);
-  font-size: clamp(2.5rem, 14vw, 4.8rem);
-  font-weight: 950;
-  letter-spacing: -0.09em;
-  line-height: 0.78;
-  text-align: center;
-  text-transform: uppercase;
-}
-
-.moon,
-.bolt,
-.star {
-  position: absolute;
-  z-index: 2;
-  font-weight: 900;
-}
-
-.moon {
-  top: 8%;
-  left: 15%;
-  color: var(--gold);
-  font-size: 2.2rem;
-}
-
-.bolt {
-  right: 12%;
-  bottom: 12%;
-  color: var(--blue);
-  font-size: 2.6rem;
-}
-
-.star-one {
-  top: 16%;
-  right: 11%;
-  color: var(--pink);
-}
-
-.star-two {
-  bottom: 15%;
-  left: 10%;
-  color: var(--pink);
-  font-size: 1.5rem;
+  object-fit: contain;
 }
 
 .story-section,
@@ -562,6 +491,13 @@ input {
 
   .signup-form {
     padding: 2rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero-logo {
+    width: min(92vw, 360px);
+    margin-inline: auto;
   }
 }
 
