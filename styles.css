@@ -358,7 +358,8 @@ h3 {
 
 .drop-preview-section {
   background:
-    radial-gradient(circle at 15% 15%, rgb(101 214 255 / 7%), transparent 24rem),
+    radial-gradient(circle at 15% 15%, rgb(255 143 199 / 8%), transparent 22rem),
+    radial-gradient(circle at 85% 65%, rgb(101 214 255 / 7%), transparent 24rem),
     var(--black);
 }
 
@@ -369,7 +370,10 @@ h3 {
 }
 
 .drop-preview-card {
-  overflow: hidden;
+  display: grid;
+  gap: 1rem;
+  align-content: start;
+  padding: 1rem;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--panel);
@@ -381,25 +385,20 @@ h3 {
   width: 100%;
   height: auto;
   aspect-ratio: 1;
-  padding: 1rem;
-  border-bottom: 1px solid var(--line);
-  background: var(--black);
   object-fit: contain;
+  border-radius: calc(var(--radius) * 0.8);
+  background: #000;
 }
 
-.drop-preview-copy {
-  padding: 1.25rem;
+.drop-preview-card h3 {
+  margin-bottom: 0;
 }
 
-.drop-preview-copy h3 {
-  margin-bottom: 0.35rem;
-}
-
-.drop-preview-copy p {
+.drop-preview-card p {
   margin-bottom: 0;
   color: var(--taupe);
-  font-size: 0.72rem;
-  font-weight: 800;
+  font-size: 0.78rem;
+  font-weight: 900;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -499,9 +498,10 @@ input {
   color: var(--taupe);
 }
 
-.thanks-card .thanks-social {
-  margin: 1.5rem 0 0;
-  font-size: 0.8rem;
+.thanks-social {
+  margin-top: 1.5rem;
+  color: var(--taupe);
+  font-size: 0.9rem;
 }
 
 .thanks-social a {
