@@ -451,6 +451,32 @@ input {
   border-top: 1px solid var(--line);
 }
 
+.sister-brand {
+  border-top: 1px solid var(--line);
+  background: rgb(255 244 223 / 2.5%);
+  padding-block: 2rem;
+}
+
+.sister-brand p {
+  max-width: 58rem;
+  margin: 0;
+  color: var(--taupe);
+  font-size: 0.85rem;
+  line-height: 1.75;
+}
+
+.sister-brand a {
+  color: var(--cream);
+  font-weight: 750;
+  text-decoration-color: var(--pink);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+.sister-brand a:hover {
+  color: var(--pink);
+}
+
 .site-footer p {
   margin-bottom: 0.2rem;
   font-size: 0.75rem;
