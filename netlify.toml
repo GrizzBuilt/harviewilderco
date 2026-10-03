@@ -14,3 +14,14 @@
   to = "https://harviewilderco.com/:splat"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[headers]]
+  for = "/scripts/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"

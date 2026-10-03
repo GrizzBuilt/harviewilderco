@@ -150,7 +150,7 @@
 
   function designBlock(design) {
     return `
-      <section class="design-product-block" aria-labelledby="${design.slug}-title">
+      <section id="${design.slug}" class="design-product-block" aria-labelledby="${design.slug}-title">
         <article class="design-card">
           <img src="${design.image}" alt="${design.name} Drop One artwork" width="600" height="600" loading="lazy" decoding="async">
           <div>
