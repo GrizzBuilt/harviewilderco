@@ -81,40 +81,11 @@
   let items = [];
   let removedSavedOptions = 0;
 
-  const styles = document.createElement('style');
-  styles.id = 'drop-one-card-styles';
-  styles.textContent = `
-    .drop-shop-intro{max-width:50rem;margin-bottom:2.5rem}
-    .design-product-block{display:grid;gap:1.25rem;margin:0 0 4rem;padding:clamp(1rem,3vw,1.5rem);border:1px solid var(--line);border-radius:calc(var(--radius)*1.15);background:rgb(255 244 223 / 2.5%)}
-    .design-card{display:grid;grid-template-columns:minmax(120px,220px) 1fr;gap:clamp(1rem,3vw,2rem);align-items:center;padding:1rem;border:1px solid rgb(255 143 199 / 28%);border-radius:var(--radius);background:var(--panel)}
-    .design-card img{width:100%;height:auto;aspect-ratio:1;object-fit:contain;border-radius:1rem;background:#000}
-    .design-card h3{font-size:clamp(1.6rem,4vw,2.5rem);margin-bottom:.5rem}
-    .design-card p{margin:0;color:var(--taupe)}
-    .garment-card-grid{display:grid;gap:1rem}
-    .garment-card{display:grid;gap:1rem;padding:1.25rem;border:1px solid var(--line);border-radius:var(--radius);background:var(--panel);box-shadow:inset 0 1px rgb(255 255 255 / 4%)}
-    .garment-card-header{display:flex;gap:1rem;align-items:flex-start;justify-content:space-between}
-    .garment-card-header h4{margin:0;color:var(--cream);font-size:1.15rem;line-height:1.2}
-    .style-number{display:block;margin-top:.3rem;color:var(--blue);font-size:.72rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase}
-    .garment-price{color:var(--pink);font-size:1.25rem;font-weight:950;white-space:nowrap}
-    .garment-note{margin:0;color:var(--taupe);font-size:.78rem;line-height:1.45}
-    .garment-art{display:grid;grid-template-columns:72px 1fr;gap:.85rem;align-items:center;padding:.7rem;border:1px solid var(--line);border-radius:1rem;background:#050505}
-    .garment-art img{width:72px;height:72px;object-fit:contain;border-radius:.65rem}
-    .garment-art p{margin:0;color:var(--taupe);font-size:.78rem}
-    .garment-options{display:grid;gap:.85rem}
-    .garment-options .option-pair{display:grid;grid-template-columns:1fr 1fr;gap:.75rem}
-    .garment-options select,.garment-options input{width:100%}
-    .garment-options .button{width:100%}
-    .availability-note{margin:.25rem 0 0;color:var(--gold);font-size:.74rem;line-height:1.45}
-    .design-divider{height:1px;margin:1rem 0;background:var(--line)}
-    @media(min-width:42rem){.garment-card-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    @media(min-width:70rem){.garment-card-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.design-card{grid-template-columns:180px 1fr}}
-    @media(max-width:41.99rem){.design-card{grid-template-columns:1fr}.design-card img{max-width:240px;margin-inline:auto}.garment-options .option-pair{grid-template-columns:1fr}}
-  `;
-  document.head.append(styles);
-
   function makeOptions(values, placeholder) {
     return `<option value="">${placeholder}</option>${values.map(value => `<option value="${value}">${value}</option>`).join('')}`;
   }
+
+  const displayImages = {"wild-little-soul":{"320":"/assets/optimized/wild-little-soul-320-53c1174c8b.webp","480":"/assets/optimized/wild-little-soul-480-674249dbf0.webp","768":"/assets/optimized/wild-little-soul-768-273beca577.webp"},"snack-goblin":{"320":"/assets/optimized/snack-goblin-320-4ba07472ea.webp","480":"/assets/optimized/snack-goblin-480-b23706e7a6.webp","768":"/assets/optimized/snack-goblin-768-4f9fea7694.webp"},"moon-baby":{"320":"/assets/optimized/moon-baby-320-8adf233d0c.webp","480":"/assets/optimized/moon-baby-480-c86734bc95.webp","768":"/assets/optimized/moon-baby-768-ca7d0beaf6.webp"},"tiny-rocker":{"320":"/assets/optimized/tiny-rocker-320-fbe06de870.webp","480":"/assets/optimized/tiny-rocker-480-70516bff36.webp","768":"/assets/optimized/tiny-rocker-768-2745473379.webp"}};
 
   function garmentCard(design, garmentKey) {
     const garment = garmentCatalog[garmentKey];
@@ -130,7 +101,7 @@
         <figure class="garment-photo printed-preview ${garmentKey}">
           <div class="garment-mockup">
             <img class="mockup-blank" src="${photoUrl(garment, photoColor)}" alt="${garment.style} ${garment.name} in ${photoColor}, with ${design.name} print preview" width="493" height="740" loading="lazy" decoding="async">
-            <img class="mockup-print" src="${design.image}" alt="" width="1254" height="1254" loading="lazy" decoding="async">
+            <img class="mockup-print" src="${displayImages[design.slug][320]}" alt="" width="320" height="320" loading="lazy" decoding="async">
           </div>
           <figcaption>${photoColor} · ${design.name}<span>Print placement preview; final scale varies by size.</span></figcaption>
         </figure>
@@ -152,7 +123,7 @@
     return `
       <section id="${design.slug}" class="design-product-block" aria-labelledby="${design.slug}-title">
         <article class="design-card">
-          <img src="${design.image}" alt="${design.name} Drop One artwork" width="600" height="600" loading="lazy" decoding="async">
+          <img src="${displayImages[design.slug][320]}" srcset="${displayImages[design.slug][320]} 320w, ${displayImages[design.slug][480]} 480w, ${displayImages[design.slug][768]} 768w" sizes="(min-width: 70rem) 180px, (min-width: 42rem) 220px, 240px" alt="${design.name} Drop One artwork" width="320" height="320" loading="lazy" decoding="async">
           <div>
             <p class="section-kicker">Drop One Design</p>
             <h3 id="${design.slug}-title">${design.name}</h3>
@@ -172,7 +143,7 @@
   }
 
   const shopContainer = document.querySelector('#drop-preview .container');
-  if (shopContainer) {
+  if (shopContainer && !shopContainer.hasAttribute('data-rendered')) {
     shopContainer.innerHTML = `
       <div class="drop-shop-intro">
         <p class="section-kicker">The first four</p>
@@ -285,6 +256,7 @@
 
   document.querySelectorAll('.garment-card').forEach(card => {
     const form = card.querySelector('form');
+    form.querySelector('button[type="submit"]').disabled = false;
     const garment = garmentCatalog[card.dataset.garment];
     const selection = card.querySelector('.selected-variant');
     form.addEventListener('change', () => {

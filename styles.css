@@ -808,3 +808,6 @@ button:disabled {opacity:.5;cursor:not-allowed;}
     @media(max-width:41.99rem){.design-card{grid-template-columns:1fr}.design-card img{max-width:240px;margin-inline:auto}.garment-options .option-pair{grid-template-columns:1fr}}
 
 /* End static storefront cards */
+
+.book-load-status {margin:0;text-align:center;color:var(--taupe);}
+.book-buy-card {min-height:38rem;}

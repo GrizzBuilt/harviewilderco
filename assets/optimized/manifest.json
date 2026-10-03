@@ -1,0 +1,32 @@
+{
+  "assets/drop-one/wild-little-soul.webp": {
+    "320": "/assets/optimized/wild-little-soul-320-53c1174c8b.webp",
+    "480": "/assets/optimized/wild-little-soul-480-674249dbf0.webp",
+    "768": "/assets/optimized/wild-little-soul-768-273beca577.webp"
+  },
+  "assets/drop-one/snack-goblin.webp": {
+    "320": "/assets/optimized/snack-goblin-320-4ba07472ea.webp",
+    "480": "/assets/optimized/snack-goblin-480-b23706e7a6.webp",
+    "768": "/assets/optimized/snack-goblin-768-4f9fea7694.webp"
+  },
+  "assets/drop-one/moon-baby.webp": {
+    "320": "/assets/optimized/moon-baby-320-8adf233d0c.webp",
+    "480": "/assets/optimized/moon-baby-480-c86734bc95.webp",
+    "768": "/assets/optimized/moon-baby-768-ca7d0beaf6.webp"
+  },
+  "assets/drop-one/tiny-rocker.webp": {
+    "320": "/assets/optimized/tiny-rocker-320-fbe06de870.webp",
+    "480": "/assets/optimized/tiny-rocker-480-70516bff36.webp",
+    "768": "/assets/optimized/tiny-rocker-768-2745473379.webp"
+  },
+  "assets/harvie-wilder-logo-1200.webp": {
+    "480": "/assets/optimized/brand-logo-480-5465abf8af.webp",
+    "700": "/assets/optimized/brand-logo-700-cc9f526c06.webp",
+    "1200": "/assets/optimized/brand-logo-1200-8d9d0ffd1e.webp"
+  },
+  "hero-avif": {
+    "480": "/assets/optimized/brand-logo-480-952e5e240f.avif",
+    "700": "/assets/optimized/brand-logo-700-8eab30a918.avif",
+    "1200": "/assets/optimized/brand-logo-1200-4a3a5aba76.avif"
+  }
+}
