@@ -220,6 +220,7 @@
   const address = document.getElementById('shipping-address');
   let merchandiseTotal = 0;
   function updateDelivery() {
+    if (!delivery || !address) return;
     const shipping = delivery.value === 'Ship to me';
     address.hidden = !shipping;
     address.disabled = !shipping;
@@ -229,7 +230,7 @@
     document.getElementById('order-total').textContent = money(merchandiseTotal + fee);
     document.getElementById('order-total-before-tax').value = money(merchandiseTotal + fee);
   }
-  delivery.addEventListener('change', updateDelivery);
+  if (delivery) delivery.addEventListener('change', updateDelivery);
 
   function renderBag() {
     const list = document.getElementById('preorder-items');
@@ -238,7 +239,7 @@
     if (!items.length) {
       const empty = document.createElement('p');
       empty.className = 'empty-bag';
-      empty.textContent = 'Your preorder is waiting for a little personality. Add a garment card above to get started.';
+      empty.textContent = 'Your bag is empty. Choose your garments from Drop One to get started.';
       list.append(empty);
     }
     let total = 0;
@@ -319,7 +320,7 @@
       const feedback = card.querySelector('.card-feedback');
       feedback.replaceChildren(document.createTextNode('Added! '));
       const link = document.createElement('a');
-      link.href = '#preorder';
+      link.href = '/preorder.html';
       link.textContent = 'Review your preorder →';
       feedback.append(link);
     });

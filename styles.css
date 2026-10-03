@@ -774,3 +774,8 @@ button:disabled {opacity:.5;cursor:not-allowed;}
 .shipping-address {display:grid;gap:1rem;min-width:0;margin:0;padding:1rem;border:1px solid var(--line);border-radius:.75rem;}
 .shipping-address[hidden] {display:none;}
 .shipping-address legend {padding-inline:.4rem;color:var(--gold);font-weight:800;font-size:.9rem;}
+
+.checkout-back {padding-top:2rem;}
+.invoice-next {text-align:left;margin-bottom:2rem;}
+.invoice-next h2 {font-size:1.5rem;margin-bottom:1rem;}
+.invoice-next ul {padding-left:1.25rem;display:grid;gap:1rem;color:var(--taupe);}
