@@ -11,3 +11,5 @@ Commit the regenerated `index.html` and any pages whose asset versions changed w
 The sitemap contains the public homepage. Preorder, success and error pages intentionally use `noindex, follow`.
 
 Run `node scripts/version-assets.cjs` after editing CSS or JavaScript directly. It changes their query-string versions to content hashes, so long-lived browser caches cannot serve an older release. Optimized image copies have content hashes in their filenames; the approved full-resolution artwork stays in `assets/drop-one/`.
+
+To notify participating search engines after a public homepage update, run `python scripts/submit-indexnow.py` after deployment. It verifies the published key before POSTing the public homepage to IndexNow. The key is a public ownership-verification file, not a private account credential. Preorder and confirmation pages are excluded. HTTP 200 confirms receipt; HTTP 202 means receipt with key validation pending. Neither response confirms indexing.

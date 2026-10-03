@@ -45,3 +45,13 @@
   for = "/site-init.js"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/2b00a32e0a06dde5d73045939ed36b5b.txt"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
+[[headers]]
+  for = "/indexnow.json"
+  [headers.values]
+    X-Robots-Tag = "noindex"
