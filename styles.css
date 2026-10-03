@@ -707,3 +707,43 @@ input {
     scroll-behavior: auto;
   }
 }
+
+
+/* Drop One reuses the original palette, cards, buttons and artwork. */
+select, textarea {width:100%;min-height:3.25rem;border:1px solid var(--line);border-radius:.75rem;background:var(--black);color:var(--cream);font:inherit;padding:.8rem;}
+select:focus-visible,textarea:focus-visible,summary:focus-visible {outline:3px solid var(--blue);outline-offset:4px;}
+.launch-facts {display:flex;flex-wrap:wrap;gap:1rem 3rem;margin-top:2rem;}
+.launch-facts p {margin:0;color:var(--taupe);}
+.launch-facts strong {color:var(--gold);font-size:1.5rem;margin-right:.4rem;}
+.shop-grid {display:grid;gap:1.5rem;margin-top:2rem;}
+.shop-card {padding:1.25rem;gap:1rem;}
+.shop-card-heading {display:flex;justify-content:space-between;align-items:start;gap:.75rem;}
+.shop-card-heading h3 {font-size:1.5rem;}
+.product-price {color:var(--gold);font-weight:800;white-space:nowrap;}
+.shop-card .product-description {font:inherit;letter-spacing:0;text-transform:none;font-weight:400;min-height:3.5rem;}
+.product-options {display:grid;gap:1rem;}
+.option-pair {display:grid;grid-template-columns:1fr 1fr;gap:.75rem;}
+.shop-note,.size-link {color:var(--taupe);font-size:.85rem;}
+.size-link {color:var(--blue);text-underline-offset:.2rem;}
+.shop-card .card-feedback {min-height:1.6rem;font:inherit;text-transform:none;letter-spacing:0;color:var(--blue);}
+.preorder-section {border-block:1px solid var(--line);background:rgb(255 244 223 / 2.5%);}
+.preorder-steps {padding-left:1.3rem;display:grid;gap:1rem;}
+.preorder-panel {min-width:0;}
+.bag-item {display:flex;justify-content:space-between;gap:1rem;border-bottom:1px solid var(--line);padding:1rem 0;}
+.bag-item p {font-size:.85rem;color:var(--taupe);margin:.3rem 0;}
+.bag-item span {color:var(--gold);font-weight:800;}
+.remove-item {align-self:start;padding:.6rem;border:1px solid var(--line);border-radius:.5rem;background:transparent;color:var(--pink);font:inherit;font-size:.8rem;cursor:pointer;min-height:44px;}
+.subtotal {display:flex;justify-content:space-between;gap:1rem;margin:1.5rem 0 .5rem;}
+.subtotal strong {color:var(--gold);}
+.consent {display:flex;align-items:start;gap:.75rem;text-transform:none;letter-spacing:0;font-weight:500;}
+.consent input {width:1.2rem;min-height:1.2rem;flex-shrink:0;margin-top:.25rem;accent-color:var(--pink);}
+button:disabled {opacity:.5;cursor:not-allowed;}
+#preorder-status:empty {display:none;}
+#preorder-status {color:var(--gold);margin:0;}
+.drop-faq {margin-top:2rem;max-width:52rem;}
+.drop-faq details {border-bottom:1px solid var(--line);padding:1.25rem 0;}
+.drop-faq summary {cursor:pointer;font-weight:800;min-height:44px;}
+.drop-faq p {color:var(--taupe);margin:.5rem 0 0;}
+.upcoming-grid {display:grid;gap:1rem;max-width:42rem;}
+@media(min-width:42rem) {.shop-grid,.upcoming-grid {grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(max-width:41.99rem) {.shop-card-heading h3 {font-size:1.25rem;}.launch-facts {display:grid;gap:.5rem;}.header-inner nav a {min-height:44px;display:inline-flex;align-items:center;}.preorder-panel .signup-form {padding:1.25rem;}}
