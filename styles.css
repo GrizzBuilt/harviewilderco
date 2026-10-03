@@ -770,3 +770,7 @@ button:disabled {opacity:.5;cursor:not-allowed;}
 .garment-photo.infant .mockup-print {left:29%;top:21%;width:42%;}
 .garment-photo figcaption span {display:block;margin-top:.2rem;font-size:.66rem;}
 @media(max-width:41.99rem) {.garment-photo .garment-mockup {width:220px;}}
+
+.shipping-address {display:grid;gap:1rem;min-width:0;margin:0;padding:1rem;border:1px solid var(--line);border-radius:.75rem;}
+.shipping-address[hidden] {display:none;}
+.shipping-address legend {padding-inline:.4rem;color:var(--gold);font-weight:800;font-size:.9rem;}

@@ -178,7 +178,7 @@
         <p class="section-kicker">The first four</p>
         <h2>Pick the design. Then pick the garment.</h2>
         <p class="lead">Each Drop One design is followed by separate cards for the Rabbit Skins bodysuit, Port & Co infant tee, toddler tee, and youth tee. Two colors chosen for each design, on the right garment for your little one.</p>
-        <p class="shop-note">No payment is taken here. We confirm blank availability, final sizing, shipping, and production timing before invoicing.</p>
+        <p class="shop-note">No payment is taken here. Apparel shipping is a flat $9 per order. We confirm blank availability, final sizing, and production timing before invoicing.</p>
       </div>
       ${designs.map(designBlock).join('')}
       <noscript><p>To build a preorder, enable JavaScript. You can also contact us through <a href="https://www.facebook.com/harviewilderco">Facebook</a>.</p></noscript>`;
@@ -216,6 +216,21 @@
   const status = document.getElementById('preorder-status');
   if (status && removedSavedOptions) status.textContent = 'Some saved options are no longer part of Drop One. Please review your bag and choose from the two launch colors.';
 
+  const delivery = document.getElementById('delivery');
+  const address = document.getElementById('shipping-address');
+  let merchandiseTotal = 0;
+  function updateDelivery() {
+    const shipping = delivery.value === 'Ship to me';
+    address.hidden = !shipping;
+    address.disabled = !shipping;
+    const fee = shipping && items.length ? 9 : 0;
+    document.getElementById('shipping-total').textContent = delivery.value ? money(fee) : 'Choose delivery';
+    document.getElementById('shipping-charge').value = money(fee);
+    document.getElementById('order-total').textContent = money(merchandiseTotal + fee);
+    document.getElementById('order-total-before-tax').value = money(merchandiseTotal + fee);
+  }
+  delivery.addEventListener('change', updateDelivery);
+
   function renderBag() {
     const list = document.getElementById('preorder-items');
     if (!list) return;
@@ -249,6 +264,8 @@
       row.append(info, remove);
       list.append(row);
     });
+    merchandiseTotal = total;
+    updateDelivery();
     const count = items.reduce((sum, item) => sum + item.quantity, 0);
     const bagCount = document.getElementById('bag-count');
     const totalNode = document.getElementById('preorder-total');
