@@ -1,0 +1,46 @@
+[
+  {
+    "style": "RS4400",
+    "color_shown": "Black",
+    "product_url": "https://www.sanmar.com/p/8522_Black",
+    "photo_url": "https://cdnp.sanmar.com/medias/sys_master/images/images/h7e/h65/11204809457694/8522-Black-5-RS4400BlackFlatFront2-1200W.jpg",
+    "local_file": "rs4400-front.webp",
+    "dimensions": [
+      493,
+      740
+    ]
+  },
+  {
+    "style": "CAR54I",
+    "color_shown": "Aquatic Blue",
+    "product_url": "https://www.sanmar.com/p/6471_AquaticBl",
+    "photo_url": "https://cdnp.sanmar.com/medias/sys_master/images/h5c/h8e/31360837943326/1200W_6471_AquaticBl-12-CAR54IAquaticBlFlatFront1/1200W-6471-AquaticBl-12-CAR54IAquaticBlFlatFront1.jpg",
+    "local_file": "car54i-front.webp",
+    "dimensions": [
+      493,
+      740
+    ]
+  },
+  {
+    "style": "CAR54T",
+    "color_shown": "Aquatic Blue",
+    "product_url": "https://www.sanmar.com/p/6472_AquaticBl",
+    "photo_url": "https://cdnp.sanmar.com/medias/sys_master/images/h98/h85/32399692234782/1200W_6472_AquaticBl-12-CAR54TAquaticBlFlatFront2/1200W-6472-AquaticBl-12-CAR54TAquaticBlFlatFront2.jpg",
+    "local_file": "car54t-front.webp",
+    "dimensions": [
+      493,
+      740
+    ]
+  },
+  {
+    "style": "PC54Y",
+    "color_shown": "Aquatic Blue",
+    "product_url": "https://www.sanmar.com/p/3986_AquaticBl",
+    "photo_url": "https://cdnp.sanmar.com/medias/sys_master/images/h01/hb6/30561895546910/1200W_3986_AquaticBl-12-PC54YAquaticBlFlatFront1/1200W-3986-AquaticBl-12-PC54YAquaticBlFlatFront1.jpg",
+    "local_file": "pc54y-front.webp",
+    "dimensions": [
+      493,
+      740
+    ]
+  }
+]

@@ -106,12 +106,17 @@
   function garmentCard(design, garmentKey) {
     const garment = garmentCatalog[garmentKey];
     const id = `${design.slug}-${garmentKey}`;
+    const photoColor = garmentKey === 'bodysuit' ? 'Black' : 'Aquatic Blue';
     return `
-      <article class="garment-card shop-card" data-design="${design.name}" data-garment="${garmentKey}">
+      <article id="${id}-card" class="garment-card shop-card" data-design="${design.name}" data-garment="${garmentKey}">
         <div class="garment-card-header">
           <div><h4>${garment.name}</h4><span class="style-number">${garment.style}</span></div>
           <span class="garment-price">${money(garment.price)}</span>
         </div>
+        <figure class="garment-photo">
+          <img src="/assets/garments/${garment.style.toLowerCase()}-front.webp" alt="${garment.style} ${garment.name}, front view in ${photoColor}" width="493" height="740" loading="lazy" decoding="async">
+          <figcaption>${photoColor} blank shown · design below</figcaption>
+        </figure>
         <div class="garment-art">
           <img src="${design.image}" alt="${design.name} print artwork" width="144" height="144" loading="lazy" decoding="async">
           <p>${design.name}<br>Artwork preview</p>
@@ -123,6 +128,7 @@
             <div class="form-field"><label for="${id}-color">Color</label><select id="${id}-color" class="color" required>${makeOptions(garment.colors, 'Choose color')}</select></div>
           </div>
           <div class="form-field"><label for="${id}-quantity">Quantity</label><input id="${id}-quantity" class="quantity" type="number" min="1" max="20" step="1" value="1" required></div>
+          <p class="selected-variant" aria-live="polite">Choose a size and color for your ${garment.name.toLowerCase()}.</p>
           ${garmentKey === 'youth' ? '<p class="availability-note">PC54Y has 58 colors. If you want one not listed, add it in the preorder notes and we’ll confirm availability.</p>' : ''}
           <button class="button button-primary" type="submit">Add ${garment.name} · ${money(garment.price)}</button>
           <p class="card-feedback" aria-live="polite"></p>
@@ -139,6 +145,9 @@
             <p class="section-kicker">Drop One Design</p>
             <h3 id="${design.slug}-title">${design.name}</h3>
             <p>${design.description}</p>
+            <nav class="garment-jump-links" aria-label="Shop ${design.name} by garment">
+              ${Object.entries(garmentCatalog).map(([key, garment]) => `<a href="#${design.slug}-${key}-card">${garment.name}</a>`).join('')}
+            </nav>
           </div>
         </article>
         <div class="garment-card-grid">
@@ -182,8 +191,9 @@
     const saved = JSON.parse(localStorage.getItem(storageKey) || '[]');
     if (Array.isArray(saved)) {
       items = saved.filter(item => {
+        if (!item || typeof item !== 'object') return false;
         const garment = garmentCatalog[item.garment];
-        return item && designs.some(d => d.name === item.design) && garment && garment.sizes.includes(item.size) && garment.colors.includes(item.color) && Number.isInteger(item.quantity) && item.quantity > 0 && item.quantity <= 20;
+        return designs.some(d => d.name === item.design) && garment && garment.sizes.includes(item.size) && garment.colors.includes(item.color) && Number.isInteger(item.quantity) && item.quantity > 0 && item.quantity <= 20;
       });
     }
   } catch (_) { /* Shopping remains usable with storage disabled. */ }
@@ -243,6 +253,16 @@
 
   document.querySelectorAll('.garment-card').forEach(card => {
     const form = card.querySelector('form');
+    const garment = garmentCatalog[card.dataset.garment];
+    const selection = card.querySelector('.selected-variant');
+    form.addEventListener('change', () => {
+      const size = card.querySelector('.size').value;
+      const color = card.querySelector('.color').value;
+      selection.textContent = size && color
+        ? `Your selection: ${garment.style} · ${size} · ${color}`
+        : `Choose a size and color for your ${garment.name.toLowerCase()}.`;
+      card.querySelector('.card-feedback').textContent = '';
+    });
     form.addEventListener('submit', event => {
       event.preventDefault();
       if (!form.reportValidity()) return;
