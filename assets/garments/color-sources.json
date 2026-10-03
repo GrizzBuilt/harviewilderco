@@ -1,0 +1,189 @@
+[
+  {
+    "style": "RS4400",
+    "color": "Black",
+    "product_url": "https://www.sanmar.com/p/8522_Black",
+    "photo_url": "https://cdnp.sanmar.com/medias/sys_master/images/images/h7e/h65/11204809457694/8522-Black-5-RS4400BlackFlatFront2-1200W.jpg",
+    "local_file": "rs4400-black.webp",
+    "dimensions": [
+      493,
+      740
+    ]
+  },
+  {
+    "style": "RS4400",
+    "color": "White",
+    "product_url": "https://www.sanmar.com/p/8522_White",
+    "photo_url": "https://cdnp.sanmar.com/medias/sys_master/images/images/h9a/h84/11204822138910/8522-White-5-RS4400WhiteFlatFront2-1200W.jpg",
+    "local_file": "rs4400-white.webp",
+    "dimensions": [
+      493,
+      740
+    ]
+  },
+  {
+    "style": "RS4400",
+    "color": "Heather",
+    "product_url": "https://www.sanmar.com/p/8522_Heather",
+    "photo_url": "https://cdnp.sanmar.com/medias/sys_master/images/images/hb9/h4f/11204809490462/8522-Heather-5-RS4400HeatherFlatFront2-1200W.jpg",
+    "local_file": "rs4400-heather.webp",
+    "dimensions": [
+      493,
+      740
+    ]
+  },
+  {
+    "style": "RS4400",
+    "color": "LightBlue",
+    "product_url": "https://www.sanmar.com/p/8522_LightBlue",
+    "photo_url": "https://cdnp.sanmar.com/medias/sys_master/images/images/h02/he8/11204812701726/8522-LightBlue-5-RS4400LightBlueFlatFront2-1200W.jpg",
+    "local_file": "rs4400-lightblue.webp",
+    "dimensions": [
+      493,
+      740
+    ]
+  },
+  {
+    "style": "RS4400",
+    "color": "Pink",
+    "product_url": "https://www.sanmar.com/p/8522_Pink",
+    "photo_url": "https://cdnp.sanmar.com/medias/sys_master/images/images/h42/h9b/11204815847454/8522-Pink-5-RS4400PinkFlatFront2-1200W.jpg",
+    "local_file": "rs4400-pink.webp",
+    "dimensions": [
+      493,
+      740
+    ]
+  },
+  {
+    "style": "CAR54I",
+    "color": "JetBlack",
+    "product_url": "https://www.sanmar.com/p/6471_JetBlack",
+    "photo_url": "https://cdnp.sanmar.com/medias/sys_master/images/h65/hea/31360838533150/1200W_6471_JetBlack-12-CAR54IJetBlackFlatFront1/1200W-6471-JetBlack-12-CAR54IJetBlackFlatFront1.jpg",
+    "local_file": "car54i-jetblack.webp",
+    "dimensions": [
+      493,
+      740
+    ]
+  },
+  {
+    "style": "CAR54I",
+    "color": "White",
+    "product_url": "https://www.sanmar.com/p/6471_White",
+    "photo_url": "https://cdnp.sanmar.com/medias/sys_master/images/h63/h22/31360878313502/1200W_6471_White-12-CAR54IWhiteFlatFront1/1200W-6471-White-12-CAR54IWhiteFlatFront1.jpg",
+    "local_file": "car54i-white.webp",
+    "dimensions": [
+      493,
+      740
+    ]
+  },
+  {
+    "style": "CAR54I",
+    "color": "CandyPink",
+    "product_url": "https://www.sanmar.com/p/6471_CandyPink",
+    "photo_url": "https://cdnp.sanmar.com/medias/sys_master/images/h95/he3/31360838336542/1200W_6471_CandyPink-12-CAR54ICandyPinkFlatFront1/1200W-6471-CandyPink-12-CAR54ICandyPinkFlatFront1.jpg",
+    "local_file": "car54i-candypink.webp",
+    "dimensions": [
+      493,
+      740
+    ]
+  },
+  {
+    "style": "CAR54T",
+    "color": "JetBlack",
+    "product_url": "https://www.sanmar.com/p/6472_JetBlack",
+    "photo_url": "https://cdnp.sanmar.com/medias/sys_master/images/images/h58/h57/13135444738078/6472-JetBlack-5-CAR54TJetBlackFlatFront1-1200W.jpg",
+    "local_file": "car54t-jetblack.webp",
+    "dimensions": [
+      493,
+      740
+    ]
+  },
+  {
+    "style": "CAR54T",
+    "color": "White",
+    "product_url": "https://www.sanmar.com/p/6472_White",
+    "photo_url": "https://cdnp.sanmar.com/medias/sys_master/images/images/h70/h4c/13135459844126/6472-White-5-CAR54TWhiteFlatFront1-1200W.jpg",
+    "local_file": "car54t-white.webp",
+    "dimensions": [
+      493,
+      740
+    ]
+  },
+  {
+    "style": "CAR54T",
+    "color": "CandyPink",
+    "product_url": "https://www.sanmar.com/p/6472_CandyPink",
+    "photo_url": "https://cdnp.sanmar.com/medias/sys_master/images/images/h4c/h34/13135441166366/6472-CandyPink-5-CAR54TCandyPinkFlatFront1-1200W.jpg",
+    "local_file": "car54t-candypink.webp",
+    "dimensions": [
+      493,
+      740
+    ]
+  },
+  {
+    "style": "PC54Y",
+    "color": "JetBlack",
+    "product_url": "https://www.sanmar.com/p/3986_JetBlack",
+    "photo_url": "https://cdnp.sanmar.com/medias/sys_master/images/hc3/h45/30561909964830/1200W_3986_JetBlack-12-PC54YJetBlackFlatFront1/1200W-3986-JetBlack-12-PC54YJetBlackFlatFront1.jpg",
+    "local_file": "pc54y-jetblack.webp",
+    "dimensions": [
+      493,
+      740
+    ]
+  },
+  {
+    "style": "PC54Y",
+    "color": "White",
+    "product_url": "https://www.sanmar.com/p/3986_White",
+    "photo_url": "https://cdnp.sanmar.com/medias/sys_master/images/had/h7f/30563106324510/1200W_3986_White-12-PC54YWhiteFlatFront1/1200W-3986-White-12-PC54YWhiteFlatFront1.jpg",
+    "local_file": "pc54y-white.webp",
+    "dimensions": [
+      493,
+      740
+    ]
+  },
+  {
+    "style": "PC54Y",
+    "color": "CandyPink",
+    "product_url": "https://www.sanmar.com/p/3986_CandyPink",
+    "photo_url": "https://cdnp.sanmar.com/medias/sys_master/images/h31/h5d/30561899544606/1200W_3986_CandyPink-12-PC54YCandyPinkFlatFront1/1200W-3986-CandyPink-12-PC54YCandyPinkFlatFront1.jpg",
+    "local_file": "pc54y-candypink.webp",
+    "dimensions": [
+      493,
+      740
+    ]
+  },
+  {
+    "style": "CAR54I",
+    "color": "AthlHthr",
+    "product_url": "https://www.sanmar.com/p/6471_AthlHthr",
+    "photo_url": "https://cdnp.sanmar.com/medias/sys_master/images/h05/hd9/31360838008862/1200W_6471_AthlHthr-12-CAR54IAthlHthrFlatFront1/1200W-6471-AthlHthr-12-CAR54IAthlHthrFlatFront1.jpg",
+    "local_file": "car54i-athheather.webp",
+    "dimensions": [
+      493,
+      740
+    ]
+  },
+  {
+    "style": "CAR54T",
+    "color": "AthlHthr",
+    "product_url": "https://www.sanmar.com/p/6472_AthlHthr",
+    "photo_url": "https://cdnp.sanmar.com/medias/sys_master/images/images/h22/he7/13135440511006/6472-AthlHthr-5-CAR54TAthlHthrFlatFront1-1200W.jpg",
+    "local_file": "car54t-athheather.webp",
+    "dimensions": [
+      493,
+      740
+    ]
+  },
+  {
+    "style": "PC54Y",
+    "color": "AthlHthr",
+    "product_url": "https://www.sanmar.com/p/3986_AthlHthr",
+    "photo_url": "https://cdnp.sanmar.com/medias/sys_master/images/h5e/h84/30561897119774/1200W_3986_AthlHthr-12-PC54YAthlHthrFlatFront1/1200W-3986-AthlHthr-12-PC54YAthlHthrFlatFront1.jpg",
+    "local_file": "pc54y-athheather.webp",
+    "dimensions": [
+      493,
+      740
+    ]
+  }
+]

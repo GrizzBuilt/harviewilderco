@@ -761,3 +761,12 @@ button:disabled {opacity:.5;cursor:not-allowed;}
 @media(max-width:41.99rem) {.garment-photo img {height:210px;}.design-product-block .garment-card {padding:1rem;}.garment-jump-links {justify-content:center;}.garment-card-header h4 {font-size:1.2rem;}}
 
 @media(min-width:70rem) {.garment-card-header {min-height:3.25rem;}.garment-card .garment-note {min-height:3.5rem;}}
+
+/* Keep approved artwork intact as a separate layer over exact supplier photos. */
+.garment-photo .garment-mockup {position:relative;aspect-ratio:493/740;width:min(100%,240px);margin-inline:auto;}
+.garment-photo .mockup-blank {width:100%;height:100%;padding:0;object-fit:contain;}
+.garment-photo .mockup-print {position:absolute;left:28%;top:28%;width:44%;height:auto;aspect-ratio:1;padding:0;object-fit:contain;background:transparent;}
+.garment-photo.bodysuit .mockup-print {left:28%;top:27%;width:44%;}
+.garment-photo.infant .mockup-print {left:29%;top:29%;width:42%;}
+.garment-photo figcaption span {display:block;margin-top:.2rem;font-size:.66rem;}
+@media(max-width:41.99rem) {.garment-photo .garment-mockup {width:220px;}}

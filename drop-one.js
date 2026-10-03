@@ -16,7 +16,7 @@
       price: 22,
       sizes: ['06M', '12M', '18M'],
       colors: ['Aquatic Blue', 'Athletic Heather', 'Candy Pink', 'Jet Black', 'Navy', 'Red', 'Royal', 'White', 'Yellow'],
-      note: 'Port & Co Infant Core Cotton Tee · confirmed colors shown'
+      note: 'Port & Co Infant Core Cotton Tee '
     },
     toddler: {
       name: 'Toddler Tee',
@@ -32,7 +32,7 @@
       price: 26,
       sizes: ['XS', 'S', 'M', 'L', 'XL'],
       colors: ['Aquatic Blue', 'Ash', 'Athletic Heather', 'Athletic Maroon', 'Black Heather', 'Bright Aqua', 'Candy Pink', 'Cardinal', 'Carolina Blue', 'Charcoal', 'Cherry Blossom', 'Clover Green', 'Coral', 'Coyote Brown', 'Dark Chocolate Brown', 'Dark Green'],
-      note: 'Port & Co Youth Core Cotton Tee · 58 colors available; ask about colors not listed here'
+      note: 'Port & Co Youth Core Cotton Tee'
     }
   };
 
@@ -63,10 +63,23 @@
     }
   ];
 
+  // Curated launch colors use each supplier's exact names.
+  function launchColors(designName, garmentKey) {
+    const bodysuit = garmentKey === 'bodysuit';
+    const black = bodysuit ? 'Black' : 'Jet Black';
+    if (designName === 'Wild Little Soul') return [black, 'White'];
+    if (designName === 'Snack Goblin') return [bodysuit ? 'Heather' : 'Athletic Heather', 'White'];
+    if (designName === 'Moon Baby') return [black, bodysuit ? 'Light Blue' : 'Candy Pink'];
+    return [black, bodysuit ? 'Pink' : 'Candy Pink'];
+  }
+  const photoColorCodes = {'Black':'black','Jet Black':'jetblack','White':'white','Heather':'heather','Athletic Heather':'athheather','Light Blue':'lightblue','Pink':'pink','Candy Pink':'candypink'};
+  const photoUrl = (garment, color) => `/assets/garments/${garment.style.toLowerCase()}-${photoColorCodes[color]}.webp`;
+
   const money = value => new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(value);
   const storageKey = 'harvie-drop-one-v2';
   const legacyKey = 'harvie-drop-one-v1';
   let items = [];
+  let removedSavedOptions = 0;
 
   const styles = document.createElement('style');
   styles.id = 'drop-one-card-styles';
@@ -106,30 +119,29 @@
   function garmentCard(design, garmentKey) {
     const garment = garmentCatalog[garmentKey];
     const id = `${design.slug}-${garmentKey}`;
-    const photoColor = garmentKey === 'bodysuit' ? 'Black' : 'Aquatic Blue';
+    const colors = launchColors(design.name, garmentKey);
+    const photoColor = colors[0];
     return `
       <article id="${id}-card" class="garment-card shop-card" data-design="${design.name}" data-garment="${garmentKey}">
         <div class="garment-card-header">
           <div><h4>${garment.name}</h4><span class="style-number">${garment.style}</span></div>
           <span class="garment-price">${money(garment.price)}</span>
         </div>
-        <figure class="garment-photo">
-          <img src="/assets/garments/${garment.style.toLowerCase()}-front.webp" alt="${garment.style} ${garment.name}, front view in ${photoColor}" width="493" height="740" loading="lazy" decoding="async">
-          <figcaption>${photoColor} blank shown · design below</figcaption>
+        <figure class="garment-photo printed-preview ${garmentKey}">
+          <div class="garment-mockup">
+            <img class="mockup-blank" src="${photoUrl(garment, photoColor)}" alt="${garment.style} ${garment.name} in ${photoColor}, with ${design.name} print preview" width="493" height="740" loading="lazy" decoding="async">
+            <img class="mockup-print" src="${design.image}" alt="" width="1254" height="1254" loading="lazy" decoding="async">
+          </div>
+          <figcaption>${photoColor} · ${design.name}<span>Print placement preview; final scale varies by size.</span></figcaption>
         </figure>
-        <div class="garment-art">
-          <img src="${design.image}" alt="${design.name} print artwork" width="144" height="144" loading="lazy" decoding="async">
-          <p>${design.name}<br>Artwork preview</p>
-        </div>
         <p class="garment-note">${garment.note}</p>
         <form class="garment-options">
           <div class="option-pair">
             <div class="form-field"><label for="${id}-size">Size</label><select id="${id}-size" class="size" required>${makeOptions(garment.sizes, 'Choose size')}</select></div>
-            <div class="form-field"><label for="${id}-color">Color</label><select id="${id}-color" class="color" required>${makeOptions(garment.colors, 'Choose color')}</select></div>
+            <div class="form-field"><label for="${id}-color">Color</label><select id="${id}-color" class="color" required>${colors.map((color, index) => `<option value="${color}"${index === 0 ? ' selected' : ''}>${color}</option>`).join('')}</select></div>
           </div>
           <div class="form-field"><label for="${id}-quantity">Quantity</label><input id="${id}-quantity" class="quantity" type="number" min="1" max="20" step="1" value="1" required></div>
           <p class="selected-variant" aria-live="polite">Choose a size and color for your ${garment.name.toLowerCase()}.</p>
-          ${garmentKey === 'youth' ? '<p class="availability-note">PC54Y has 58 colors. If you want one not listed, add it in the preorder notes and we’ll confirm availability.</p>' : ''}
           <button class="button button-primary" type="submit">Add ${garment.name} · ${money(garment.price)}</button>
           <p class="card-feedback" aria-live="polite"></p>
         </form>
@@ -165,7 +177,7 @@
       <div class="drop-shop-intro">
         <p class="section-kicker">The first four</p>
         <h2>Pick the design. Then pick the garment.</h2>
-        <p class="lead">Each Drop One design is followed by separate cards for the Rabbit Skins bodysuit, Port & Co infant tee, toddler tee, and youth tee. Sizes and colors shown are tied to that specific blank.</p>
+        <p class="lead">Each Drop One design is followed by separate cards for the Rabbit Skins bodysuit, Port & Co infant tee, toddler tee, and youth tee. Two colors chosen for each design, on the right garment for your little one.</p>
         <p class="shop-note">No payment is taken here. We confirm blank availability, final sizing, shipping, and production timing before invoicing.</p>
       </div>
       ${designs.map(designBlock).join('')}
@@ -183,7 +195,7 @@
       <article class="product-card"><h3>Baby Bodysuit · RS4400 · $22</h3><p>Sizes: NB, 06M, 12M, 18M, 24M. Rabbit Skins Infant Short Sleeve Baby Rib Bodysuit.</p></article>
       <article class="product-card"><h3>Infant Tee · CAR54I · $22</h3><p>Sizes: 06M, 12M, 18M. Port & Co Infant Core Cotton Tee.</p></article>
       <article class="product-card"><h3>Toddler Tee · CAR54T · $24</h3><p>Sizes: 2T, 3T, 4T. Port & Co Toddler Core Cotton Tee.</p></article>
-      <article class="product-card"><h3>Youth Tee · PC54Y · $26</h3><p>Sizes: XS, S, M, L, XL. Port & Co Youth Core Cotton Tee with a much larger color range.</p></article>`;
+      <article class="product-card"><h3>Youth Tee · PC54Y · $26</h3><p>Sizes: XS, S, M, L, XL. Port & Co Youth Core Cotton Tee with two curated Drop One colors per design.</p></article>`;
   }
 
   try {
@@ -193,14 +205,16 @@
       items = saved.filter(item => {
         if (!item || typeof item !== 'object') return false;
         const garment = garmentCatalog[item.garment];
-        return designs.some(d => d.name === item.design) && garment && garment.sizes.includes(item.size) && garment.colors.includes(item.color) && Number.isInteger(item.quantity) && item.quantity > 0 && item.quantity <= 20;
+        return designs.some(d => d.name === item.design) && garment && garment.sizes.includes(item.size) && launchColors(item.design, item.garment).includes(item.color) && Number.isInteger(item.quantity) && item.quantity > 0 && item.quantity <= 20;
       });
+      removedSavedOptions = saved.length - items.length;
     }
   } catch (_) { /* Shopping remains usable with storage disabled. */ }
 
   const preorderForm = document.getElementById('preorder-form');
   const sendButton = document.getElementById('send-preorder');
   const status = document.getElementById('preorder-status');
+  if (status && removedSavedOptions) status.textContent = 'Some saved options are no longer part of Drop One. Please review your bag and choose from the two launch colors.';
 
   function renderBag() {
     const list = document.getElementById('preorder-items');
@@ -258,6 +272,11 @@
     form.addEventListener('change', () => {
       const size = card.querySelector('.size').value;
       const color = card.querySelector('.color').value;
+      const blank = card.querySelector('.mockup-blank');
+      blank.src = photoUrl(garment, color);
+      blank.alt = `${garment.style} ${garment.name} in ${color}, with ${card.dataset.design} print preview`;
+      const caption = card.querySelector('figcaption');
+      caption.firstChild.textContent = `${color} · ${card.dataset.design}`;
       selection.textContent = size && color
         ? `Your selection: ${garment.style} · ${size} · ${color}`
         : `Choose a size and color for your ${garment.name.toLowerCase()}.`;
