@@ -1,20 +1,23 @@
 (() => {
   'use strict';
   // Keep the embedded book shop off the initial hero's network/CPU path.
-  const shop = document.querySelector('.book-buy-card');
+  const shops = [...document.querySelectorAll('.book-buy-card')];
   let loadingBook = false;
   function loadBook() {
-    if (!shop || loadingBook) return;
+    if (!shops.length || loadingBook) return;
     loadingBook = true;
     const script = document.createElement('script');
     script.src = 'https://js.lulu.com/lulu-buy.js';
     script.async = true;
     script.addEventListener('load', () => {
-      const status = shop.querySelector('.book-load-status');
-      if (status) status.remove();
+      shops.forEach(shop => {
+        const status = shop.querySelector('.book-load-status');
+        if (status) status.remove();
+      });
     });
     script.addEventListener('error', () => {
       loadingBook = false;
+      shops.forEach(shop => {
       const status = shop.querySelector('.book-load-status');
       if (!status) return;
       status.replaceChildren(document.createTextNode('The book shop could not load. '));
@@ -24,19 +27,20 @@
       retry.textContent = 'Try again';
       retry.addEventListener('click', loadBook);
       status.append(retry);
+      });
       script.remove();
     });
     document.head.append(script);
   }
-  if (shop && 'IntersectionObserver' in window) {
+  if (shops.length && 'IntersectionObserver' in window) {
     const observer = new IntersectionObserver(entries => {
       if (entries.some(entry => entry.isIntersecting)) {
         observer.disconnect();
         loadBook();
       }
     }, {rootMargin: '600px'});
-    observer.observe(shop);
-  } else if (shop) loadBook();
+    shops.forEach(shop => observer.observe(shop));
+  } else if (shops.length) loadBook();
 
   // The existing analytics queue is initialized in the head. Load its library
   // after page assets, while preserving the same measurement ID and pageview.
